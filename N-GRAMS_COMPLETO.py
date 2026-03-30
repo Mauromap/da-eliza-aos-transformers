@@ -10,7 +10,7 @@ estou bem e você
 o que você está fazendo agora
 estou estudando para a prova
 você gosta de programação
-sim eu gosto muito de programação
+sim eu muito de programação
 qual linguagem você prefere
 eu prefiro python e c mais uso c
 você já fez algum projeto interessante
