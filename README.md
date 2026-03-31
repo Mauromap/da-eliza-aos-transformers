@@ -1,98 +1,322 @@
-# 📚 Da ELIZA aos Transformers — Guia de Execução
+# 🤖 Análise da Evolução da “Inteligência” em Chatbots
 
-## Estrutura do Projeto
+## 📌 Descrição do Projeto
+
+Este projeto tem como objetivo analisar a evolução da **inteligência percebida em chatbots**, desde modelos baseados em regras até modelos modernos de **Processamento de Linguagem Natural (PLN)**.
+
+Foram implementadas quatro abordagens diferentes:
+
+* Fase 1: ELIZA (chatbot baseado em regras)
+* Fase 2: N-Grams (modelo probabilístico)
+* Fase 3: Word Embeddings (Word2Vec)
+* Fase 4: Transformers (GPT-2 e BERT)
+
+O trabalho busca demonstrar como cada técnica contribui para a simulação da linguagem humana e como a percepção de inteligência evolui ao longo das fases.
+
+---
+
+# 🎯 Objetivo
+
+Desenvolver e analisar diferentes abordagens de construção de chatbots, comparando:
+
+* capacidade de resposta
+* coerência textual
+* compreensão de linguagem
+* percepção de inteligência
+* limitações de cada modelo
+
+---
+
+# 🧠 Evolução das Fases
+
+## 🔹 Fase 1 – ELIZA (Chatbot Baseado em Regras)
+
+### 📖 Descrição
+
+O ELIZA é um chatbot clássico baseado em regras e padrões de texto.
+
+O sistema foi implementado em **Python** utilizando:
+
+* Expressões Regulares (Regex)
+* Dicionário de padrões
+* Respostas pré-definidas
+* Seleção aleatória de respostas
+
+### ⚙️ Funcionamento
+
+1. O usuário digita uma frase
+2. O sistema procura padrões no texto
+3. Se encontrar, retorna uma resposta
+4. Caso não encontre, responde de forma genérica
+
+### ✅ Vantagens
+
+* Simples de implementar
+* Simula conversação básica
+* Baixo custo computacional
+* Controle total das respostas
+
+### ❌ Limitações
+
+* Não entende o significado da frase
+* Depende totalmente de padrões
+* Respostas repetitivas
+* Não aprende com o usuário
+* Sem semântica
+
+### 🧠 Inteligência percebida
+
+Baixa — apenas simulação de conversa.
+
+---
+
+# 🔹 Fase 2 – N-Grams (Bigramas)
+
+### 📖 Descrição
+
+O modelo N-Gram utiliza **probabilidades de palavras** para gerar frases.
+
+Foi implementado um **modelo de Bigramas**, onde cada palavra prevê a próxima.
+
+### ⚙️ Funcionamento
+
+1. Pré-processamento do texto
+2. Tokenização das frases
+3. Criação dos bigramas
+4. Cálculo das probabilidades
+5. Geração de texto
+
+Exemplo:
 
 ```
-projeto/
-│
-├── fase1_eliza.py              ← Chatbot ELIZA com Regex (já feito)
-├── fase2_ngrams.py             ← Predição por N-Grams (já feito)
-├── fase3_word_embeddings.py    ← Word Embeddings com Word2Vec  ← NOVO
-└── fase4_transformers.py       ← Transformers GPT-2 e BERT     ← NOVO
+você -> está -> bem
+```
+
+### ✅ Vantagens
+
+* Gera texto automaticamente
+* Mais flexível que ELIZA
+* Usa estatística
+* Melhora a coerência
+
+### ❌ Limitações
+
+* Depende do corpus
+* Só olha 1 palavra anterior
+* Não entende contexto
+* Pode gerar frases sem sentido
+* Problema de sparsidade
+
+### 🧠 Inteligência percebida
+
+Média — parece mais inteligente que ELIZA, mas ainda limitada.
+
+---
+
+# 🔹 Fase 3 – Word Embeddings (Word2Vec)
+
+### 📖 Descrição
+
+Nesta fase, as palavras são representadas como **vetores matemáticos**.
+
+Foi utilizado:
+
+* Gensim
+* Word2Vec
+* Skip-Gram
+* PCA para visualização
+
+### ⚙️ Funcionamento
+
+1. Corpus de treinamento
+2. Tokenização
+3. Treinamento do Word2Vec
+4. Vetores de palavras
+5. Similaridade semântica
+
+Exemplo:
+
+```
+python ≈ programação
+django ≈ web
+```
+
+### 🧪 Operações possíveis
+
+* Similaridade entre palavras
+* Analogias
+* Clusters semânticos
+* Operações vetoriais
+
+### ✅ Vantagens
+
+* Entende semântica
+* Palavras semelhantes ficam próximas
+* Permite analogias
+* Representação matemática da linguagem
+
+### ❌ Limitações
+
+* Vetor fixo por palavra
+* Depende do corpus
+* Não entende frase completa
+* Não aprende sozinho
+
+### 🧠 Inteligência percebida
+
+Alta — já demonstra compreensão semântica.
+
+---
+
+# 🔹 Fase 4 – Transformers
+
+### 📖 Descrição
+
+Transformers são o **estado da arte em PLN**.
+
+Utilizam:
+
+* Self-Attention
+* Contexto global
+* Modelos pré-treinados
+* Hugging Face
+
+Foram utilizados:
+
+* GPT-2 (geração de texto)
+* BERT (preenchimento de lacunas)
+
+---
+
+## 🧪 GPT-2
+
+Modelo:
+
+```
+pierreguillou/gpt2-small-portuguese
+```
+
+Função:
+
+* gerar texto
+* prever próxima palavra
+* manter coerência
+
+### Exemplo
+
+Entrada:
+
+```
+O futuro da tecnologia é
+```
+
+Saída:
+
+```
+um caminho ao sucesso e ao crescimento da empresa
 ```
 
 ---
 
-## ⚙️ Instalação das Dependências
+## 🧪 BERT
 
-Abra o terminal (ou o terminal integrado do VS Code) e rode:
+Modelo:
 
-```bash
-# Fase 3 — Word Embeddings
-pip install gensim
-
-# Fase 4 — Transformers
-pip install transformers torch
+```
+neuralmind/bert-base-portuguese-cased
 ```
 
-> 💡 **Dica:** Se der erro de permissão, tente `pip install --user gensim`
+Função:
 
----
+* prever palavras faltantes
+* entender contexto antes e depois
 
-## ▶️ Como Executar
+Exemplo:
 
-### Fase 3 — Word Embeddings
-```bash
-python fase3_word_embeddings.py
 ```
-**O que você vai ver:**
-- A palavra "gato" representada como lista de números (vetor)
-- As palavras mais similares a "rei", "gato", "homem", etc.
-- A operação: **REI - HOMEM + MULHER = RAINHA** 🪄
-- Comparação de similaridade entre pares de palavras
-
----
-
-### Fase 4 — Transformers
-```bash
-python fase4_transformers.py
+Lisboa é a capital de [MASK]
 ```
-**⚠️ Na primeira execução:** Os modelos serão baixados automaticamente (~500MB). Isso é normal e ocorre apenas uma vez.
 
-**O que você vai ver:**
-- **GPT-2** completando frases automaticamente
-- **BERT** adivinhando palavras escondidas `[MASK]`
-- **Análise de sentimento** detectando emoção em textos
-- Comparativo completo das 4 fases
+Resultado:
 
----
-
-## 💡 Resumo do que cada fase ensina
-
-| Fase | Técnica | Ideia Central | Limitação |
-|------|---------|---------------|-----------|
-| 1 — ELIZA | Regex / Regras | Respostas fixas por palavras-chave | Fora do roteiro = falha |
-| 2 — N-Grams | Probabilidade | Frequência dita a próxima palavra | Contexto curto (2-3 palavras) |
-| 3 — Word2Vec | Vetores | Palavras como pontos no espaço | Uma palavra = um vetor fixo |
-| 4 — Transformers | Self-Attention | Contexto dinâmico da frase inteira | Precisa de muito poder computacional |
+```
+Portugal (96%)
+```
 
 ---
 
-## 🔑 Conceitos-Chave para o Relatório
+### ✅ Vantagens
 
-### Fase 3 — Word Embeddings
-- **Word2Vec:** algoritmo que transforma palavras em vetores numéricos
-- **Espaço Vetorial:** "mapa" onde palavras similares ficam próximas
-- **Similaridade por Cosseno:** mede o ângulo entre dois vetores (0 = diferente, 1 = idêntico)
-- **Álgebra Vetorial:** REI - HOMEM + MULHER = RAINHA
+* Entende contexto global
+* Gera texto coerente
+* Alta precisão
+* Estado da arte
+* Compreensão semântica avançada
 
-### Fase 4 — Transformers
-- **Self-Attention:** mecanismo que permite ao modelo "focar" nas partes mais importantes da frase
-- **Processamento Paralelo:** diferente das RNNs (que processavam palavra por palavra), os Transformers processam a frase inteira de uma vez
-- **BERT:** modelo bidirecional — lê a frase para frente e para trás
-- **GPT-2:** modelo autoregressive — gera texto da esquerda para a direita
-- **RLHF:** técnica usada para alinhar modelos como o ChatGPT com preferências humanas
+### ❌ Limitações
+
+* Alto custo computacional
+* Precisa de modelos pré-treinados
+* GPT pode gerar informação incorreta
+
+### 🧠 Inteligência percebida
+
+Muito alta — aproxima-se da linguagem humana.
 
 ---
 
-## 📝 Estrutura Sugerida para o Relatório
+# 📊 Comparação das Fases
 
-1. **Introdução** — Apresentar a jornada das 4 fases
-2. **Fase 1** — ELIZA: rigidez dos sistemas de regras
-3. **Fase 2** — N-Grams: a emergência da estatística
-4. **Fase 3** — Word2Vec: palavras como matemática
-5. **Fase 4** — Transformers: a revolução da atenção
-6. **Comparativo** — Tabela com Lógica / Contexto / Flexibilidade
-7. **Conclusão** — Impacto do RLHF no resultado final (ChatGPT, Claude, etc.)
-"# da-eliza-aos-transformers" 
-# da-eliza-aos-transformers
+| Fase         | Técnica        | Inteligência | Contexto | Semântica |
+| ------------ | -------------- | ------------ | -------- | --------- |
+| ELIZA        | Regras         | Baixa        | Não      | Não       |
+| N-Grams      | Probabilidade  | Média        | Parcial  | Não       |
+| Word2Vec     | Vetores        | Alta         | Parcial  | Sim       |
+| Transformers | Self-Attention | Muito Alta   | Global   | Sim       |
+
+---
+
+# 🚀 Tecnologias Utilizadas
+
+* Python
+* Regex
+* NLTK
+* Gensim
+* Scikit-learn
+* Transformers
+* Hugging Face
+* GPT-2
+* BERT
+
+---
+
+# 📌 Conclusão
+
+O projeto demonstrou claramente a evolução dos chatbots ao longo do tempo.
+
+* ELIZA simula conversa
+* N-Grams usa probabilidade
+* Word2Vec entende semântica
+* Transformers entendem contexto global
+
+Isso mostra que a inteligência percebida cresce conforme o modelo se torna mais complexo.
+
+---
+
+# 🧠 Impacto do RLHF
+
+O uso de **Reinforcement Learning with Human Feedback (RLHF)** melhora ainda mais os Transformers, permitindo:
+
+* respostas mais naturais
+* alinhamento com humanos
+* menos erros
+* maior coerência
+
+Assim, os modelos modernos representam o ponto mais avançado na evolução dos chatbots.
+
+---
+
+# 👨‍💻 Autores
+
+Osvaldo Moura Neto
+Mauro Antônio Pires
