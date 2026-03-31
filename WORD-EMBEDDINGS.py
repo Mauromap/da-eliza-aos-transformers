@@ -3,9 +3,7 @@ from gensim.models import Word2Vec
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
-# ------------------------
-# 1️⃣ Corpus em português
-# ------------------------
+#Corpus em português
 CORPUS = """
 oi tudo bem com você
 estou bem e você
@@ -97,9 +95,7 @@ requisição envia pedido
 resposta recebe dados
 """
 
-# ------------------------
-# 2️⃣ Pré-processamento simples
-# ------------------------
+
 def preprocess(texto):
     texto = texto.lower()  # tudo minúsculo
     texto = re.sub(r'[^a-záéíóúãõç\s]', '', texto)  # remove caracteres especiais
@@ -109,9 +105,7 @@ sentencas = preprocess(CORPUS)
 print("Sentenças tokenizadas:")
 print(sentencas)
 
-# ------------------------
-# 3️⃣ Treinar Word2Vec
-# ------------------------
+
 modelo = Word2Vec(
     sentences=sentencas,
     vector_size=50,
@@ -121,9 +115,7 @@ modelo = Word2Vec(
     workers=2
 )
 
-# ------------------------
-# 4️⃣ Palavras mais similares
-# ------------------------
+
 palavras_chave = ['programação', 'python', 'estudar']
 
 for palavra in palavras_chave:
@@ -132,15 +124,11 @@ for palavra in palavras_chave:
     for s, score in similares:
         print(f"  {s} (similaridade: {score:.2f})")
 
-# ------------------------
-# 5️⃣ Similaridade entre pares
-# ------------------------
+
 sim = modelo.wv.similarity('programação', 'python')
 print(f"\nSimilaridade entre 'programação' e 'python': {sim:.2f}")
 
-# ------------------------
-# 6️⃣ OPERAÇÕES VETORIAIS COM ANALOGIAS
-# ------------------------
+
 print("\n" + "="*60)
 print("OPERAÇÕES VETORIAIS - ANALOGIAS QUE FAZEM SENTIDO")
 print("="*60)
@@ -330,7 +318,7 @@ testar_operacao(['python'], [], "Similares a PYTHON")
 testar_operacao(['programação', 'bem'], [], "PROGRAMAÇÃO + BEM")
 testar_operacao(['python', 'estudar'], [], "PYTHON + ESTUDAR")
 
-# RESUMO EDUCATIVO
+
 print("\n" + "="*60)
 print("RESUMO: COMO USAR OPERAÇÕES VETORIAIS")
 print("="*60)
@@ -408,9 +396,6 @@ for pos, neg, desc in operacoes_finais:
 
 
 
-# ------------------------
-# 7️⃣ Visualização 2D
-# ------------------------
 palavras = list(modelo.wv.index_to_key)
 vetores = [modelo.wv[w] for w in palavras]
 
